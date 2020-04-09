@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="courses")
-public class Course {
+@Table(name="customers")
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,20 +17,20 @@ public class Course {
     @Column
     private String town;
     @Column
-    private int rating;
+    private int age;
 
     @JsonBackReference
     @OneToMany(mappedBy="booking", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
-    public Course(String name, String town, int rating) {
+    public Customer(String name, String town, int age) {
         this.name = name;
         this.town = town;
-        this.rating = rating;
+        this.age = age;
         this.bookings = new ArrayList<>();
     }
 
-    public Course() {}
+    public Customer() {}
 
     public Long getId() {
         return id;
@@ -56,12 +56,12 @@ public class Course {
         this.town = town;
     }
 
-    public int getRating() {
-        return rating;
+    public int getAge() {
+        return age;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public List<Booking> getBookings() {
