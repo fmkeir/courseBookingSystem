@@ -20,7 +20,7 @@ public class Customer {
     private int age;
 
     @JsonBackReference
-    @OneToMany(mappedBy="booking", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="customer", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
     public Customer(String name, String town, int age) {
