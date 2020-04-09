@@ -48,4 +48,14 @@ public class CourseBookingSystemApplicationTests {
 	public void canGetAllBookingsFor120119() {
 		assertEquals(1, bookingRepository.findByDate("12-01-19").size());
 	}
+
+	@Test
+	public void canGetAllCustomersInTownOnCourse() {
+		assertEquals(1, customerRepository.findByTownAndBookingsCourseName("Manchester", "Ruby").size());
+	}
+
+	@Test
+	public void canGetAllCustomersOver24InTownOnCourse(){
+		assertEquals(1, customerRepository.findByAgeGreaterThanAndTownAndBookingsCourseName(24,"Manchester", "Ruby").size());
+	}
 }
